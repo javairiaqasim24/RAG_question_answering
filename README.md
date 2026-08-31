@@ -104,7 +104,7 @@ Prerequisites: Python 3.11+, Node 20+, Docker Desktop, [Ollama](https://ollama.c
 
 ```bash
 git clone <this-repo>
-cd RAG_Project
+cd RAG_question_answering
 cp .env.example .env   # defaults already point at local Ollama — no key needed
 
 # Backend
