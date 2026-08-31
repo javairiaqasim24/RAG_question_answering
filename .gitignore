@@ -1,0 +1,45 @@
+# --- Python / backend ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.pytest_tmp/
+.mypy_cache/
+.ruff_cache/
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+
+# --- Node / frontend ---
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.turbo/
+frontend/next-env.d.ts
+npm-debug.log*
+
+# --- Env / secrets ---
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env.local
+
+# --- Evaluation outputs (generated, kept out except curated results) ---
+evaluation/results/*.tmp
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Docker ---
+pgdata/
+
+# --- Local run artifacts ---
+*.log
+

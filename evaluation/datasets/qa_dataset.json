@@ -1,0 +1,69 @@
+{
+  "document_filename": "rag_primer.pdf",
+  "description": "Manually authored QA set over sample_docs/rag_primer.pdf, a 4-page original primer on Retrieval-Augmented Generation written for this project. Each answerable question lists the page(s) that should be retrieved as ground truth for retrieval metrics.",
+  "items": [
+    {
+      "id": "q1",
+      "question": "What is Retrieval-Augmented Generation?",
+      "answerable": true,
+      "relevant_pages": [1],
+      "expected_answer": "RAG is a technique that combines a retrieval system searching an external knowledge base with a large language model that generates answers, rather than relying only on what the model memorized during training."
+    },
+    {
+      "id": "q2",
+      "question": "Where was the idea of RAG first popularized, and by whom?",
+      "answerable": true,
+      "relevant_pages": [1],
+      "expected_answer": "In a 2020 paper by researchers at Facebook AI Research, showing that a neural retriever combined with a sequence-to-sequence generator produced more accurate, verifiable answers."
+    },
+    {
+      "id": "q3",
+      "question": "What are the main stages of a RAG pipeline?",
+      "answerable": true,
+      "relevant_pages": [2],
+      "expected_answer": "Document ingestion and text cleaning, chunking, embedding generation, vector storage, and retrieval."
+    },
+    {
+      "id": "q4",
+      "question": "Why is it important to use the same embedding model for both queries and document chunks?",
+      "answerable": true,
+      "relevant_pages": [2],
+      "expected_answer": "So that semantically similar pieces of text end up close together in the same vector space, which is necessary for similarity search to work correctly."
+    },
+    {
+      "id": "q5",
+      "question": "Why does RAG reduce hallucination compared to a standalone LLM?",
+      "answerable": true,
+      "relevant_pages": [3],
+      "expected_answer": "Because the model's attention is constrained to a small set of relevant retrieved passages instead of relying purely on memorized training knowledge, and it is instructed to say when the context is insufficient rather than guess."
+    },
+    {
+      "id": "q6",
+      "question": "What metrics are used to evaluate a RAG system's retrieval quality?",
+      "answerable": true,
+      "relevant_pages": [4],
+      "expected_answer": "Hit Rate at K, Recall at K, and Precision at K."
+    },
+    {
+      "id": "q7",
+      "question": "What two properties are typically assessed when evaluating generation quality?",
+      "answerable": true,
+      "relevant_pages": [4],
+      "expected_answer": "Correctness (does the answer match the expected answer in substance) and faithfulness/groundedness (is every claim supported by the retrieved context)."
+    },
+    {
+      "id": "q8",
+      "question": "What is the boiling point of liquid nitrogen?",
+      "answerable": false,
+      "relevant_pages": [],
+      "expected_answer": null
+    },
+    {
+      "id": "q9",
+      "question": "Who is the current CEO of the company that wrote this document?",
+      "answerable": false,
+      "relevant_pages": [],
+      "expected_answer": null
+    }
+  ]
+}

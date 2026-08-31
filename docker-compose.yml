@@ -1,0 +1,29 @@
+# Only Postgres/pgvector runs in Docker for local dev — the backend and
+# frontend run natively (see README "Running Locally"), and Ollama runs on
+# the host, not in a container. If you containerize the backend yourself
+# (e.g. via backend/Dockerfile), remember that `localhost` inside that
+# container is the container itself, not your host machine: point
+# OLLAMA_BASE_URL at http://host.docker.internal:11434 instead (works out of
+# the box on Docker Desktop for Windows/Mac; on Linux, run the container with
+# --add-host=host.docker.internal:host-gateway).
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: rag_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-rag_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rag_password}
+      POSTGRES_DB: ${POSTGRES_DB:-rag_db}
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rag_user} -d ${POSTGRES_DB:-rag_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
